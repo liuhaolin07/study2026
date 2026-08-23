@@ -1,5 +1,4 @@
 # Algorithms — ACM 训练仓库
-
 ## 目录结构
 
 - `templates/` — 比赛模板,自己写、自己维护,学到哪补到哪
