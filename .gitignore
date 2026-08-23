@@ -1,0 +1,40 @@
+# 编译产物
+*.exe
+*.o
+*.out
+*.obj
+*.ilk
+*.pdb
+*.dll
+*.lib
+*.exp
+
+# IDE / 编译器缓存
+.vs/
+ipch/
+x64/
+__pycache__/
+*.vcxproj
+*.sln
+*.slnx
+*.vcxproj.user
+*.user
+*.filters
+*.suo
+*.vsidx
+*.tlog
+*.ipch
+*.recipe
+*.log
+*.lastbuildstate
+*.idb
+*.enc
+Debug/
+Release/
+build/
+
+# 临时文件
+~$*
+*.tmp
+*.bak
+.DS_Store
