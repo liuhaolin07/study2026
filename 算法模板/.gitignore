@@ -1,0 +1,67 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# C++
+*.o
+*.out
+*.a
+*.so
+*.dylib
+*.exe
+*.dll
+*.class
+*.obj
+*.ilk
+*.pdb
+.o
+.a
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Test
+.coverage
+htmlcov/
+.pytest_cache/
+tests/.build/
+
+# Environment
+venv/
+env/
+ENV/
+
+# Temp files
+*.tmp
+*.bak
+*.log
