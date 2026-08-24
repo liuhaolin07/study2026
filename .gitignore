@@ -38,3 +38,17 @@ build/
 *.tmp
 *.bak
 .DS_Store
+
+# 不属于本仓库的独立目录
+# game/        -> github.com/liuhaolin07/game
+# lanqiao26/   -> gitee.com/liuhaolinqi/lanqiao26
+# practice714/ -> gitee.com/liuhaolinqi/practice714
+# study2025/   -> gitee.com/liuhaolinqi/study2025
+# data-structures/ -> gitee.com/liuhaolinqi/data-structures
+game/
+lanqiao26/
+practice714/
+study2025/
+data-structures/
+notes/
+.obsidian/
