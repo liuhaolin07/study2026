@@ -5,7 +5,7 @@
 ## 目录
 
 ```
-templates/
+模板/
 ├── contest.cpp          # 比赛开场直接复制的骨架
 ├── XCPC_Templates/      # 31 个算法头文件（basic/sorting/data_structure/dp/graph/string/math）
 ├── tests/               # 72 项自动化测试（run_tests.ps1）
@@ -79,4 +79,4 @@ int main() {
 
 ## 学习进度
 
-课程（8 阶段 / 24 月）进度保存在 [`../course/PROGRESS.md`](../course/PROGRESS.md)。阶段目录允许逐步填写，不把空目录计为已完成内容。新增或修改模板时遵循 [维护指南](./docs/MAINTENANCE.md)，并先运行完整测试。
+课程（8 阶段 / 24 月）进度保存在 [`../课程/PROGRESS.md`](../课程/PROGRESS.md)。阶段目录允许逐步填写，不把空目录计为已完成内容。新增或修改模板时遵循 [维护指南](./docs/MAINTENANCE.md)，并先运行完整测试。

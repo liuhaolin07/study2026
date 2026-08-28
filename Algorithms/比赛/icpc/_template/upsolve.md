@@ -1,6 +1,6 @@
 # VP 复盘:YYYY-城市
 
-> 从 `contests/icpc/README.md` 的场次记录表登记本场;本文件填写复盘细节。
+> 从 `比赛/icpc/README.md` 的场次记录表登记本场;本文件填写复盘细节。
 
 ## 基本信息
 
