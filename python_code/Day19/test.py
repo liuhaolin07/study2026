@@ -5,6 +5,9 @@
 """
 import pandas as pd
 
+# 本章定位：真实分析的第一步永远是"把数据读进来、看明白、存出去"。
+# 三件套：read_xxx 读入 → info/describe 体检 → to_xxx 导出（注意编码）
+
 # ========== 1. 读取 CSV ==========
 df = pd.read_csv("students.csv", encoding="utf-8")
 print("--- 读入的学生表 ---")

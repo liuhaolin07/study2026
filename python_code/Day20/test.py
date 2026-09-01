@@ -46,7 +46,8 @@ print("\n策略A dropna 后:", df_drop.shape[0], "行")
 
 # 策略B：fillna 填充（更常用！）
 #   性别(类别型) → 众数填充；年龄 → 中位数；成绩 → 平均分
-df_fill = df.copy()
+df_fill = df.copy()     # ⚠️ copy() 很关键：不拷贝的话两个变量共享同一块数据，
+                        # 后面改 df_fill 会连带把策略A的基线也污染（视图/副本问题）
 df_fill["性别"] = df_fill["性别"].fillna(df_fill["性别"].mode()[0])
 df_fill["年龄"] = df_fill["年龄"].fillna(df_fill["年龄"].median())
 df_fill["成绩"] = df_fill["成绩"].fillna(df_fill["成绩"].mean().round(1))
@@ -58,6 +59,7 @@ print(df_fill)
 # 年龄合理范围 [15, 60]：越界的一律置 NaN 再用中位数填
 mask_bad = (df_fill["年龄"] < 15) | (df_fill["年龄"] > 60)
 print("\n异常年龄的行:\n", df_fill[mask_bad])
+# 用 .loc 一步到位改值：避免链式赋值（见 Day 18 的 SettingWithCopyWarning 陷阱）
 df_fill.loc[mask_bad, "年龄"] = df_fill["年龄"].median()
 
 print("\n--- 最终干净数据 ---")

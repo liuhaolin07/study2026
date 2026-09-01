@@ -39,6 +39,8 @@ plt.savefig("day14_subplot.png", dpi=150)
 print("已保存 day14_subplot.png")
 
 # ========== 方式二：面向对象风格 fig, ax = plt.subplots()（推荐进阶写法） ==========
+# subplots 一次返回画布 fig 和Axes数组 axes；axes 可以解包，
+# 如 (ax1, ax2) = plt.subplots(1, 2)，之后每个 ax 各自操作自己的图
 fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 
 axes[0].plot(x, np.sin(x), label="sin")
@@ -64,6 +66,8 @@ print("已保存 day14_subplots.png")
 # plt.xlabel(...)     →  ax.set_xlabel(...)
 # plt.xlim(a,b)       →  ax.set_xlim(a,b)
 # plt.legend()        →  ax.legend()
+# 怎么选：规整网格的简单图 → subplot 更快；需要保存每个子图的引用、
+# 做细节调整（共享坐标轴、不等宽布局、后续再改某张图）→ subplots 面向对象写法
 
 # ========== 今日练习 ==========
 # 用 subplot(2,1,x) 上下两张图画 y=e^x 和 y=ln(x)，都加上标题和网格

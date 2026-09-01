@@ -83,13 +83,14 @@ for i in range(1, 10):
 ```
 
 ### for-else
-
-循环没有被 `break` 中断时，会执行 else 里的代码：
+当循环正常结束（即没有被 `break` 中断）时，会执行 `else` 代码块：
 
 ```python
 for i in range(2, 6):
-    if i == 99:
+    if i == 3:
         break
+# 注意：这里的 else 与 for 对齐（顶格），因此它是 for...else 结构。
+# 在 Python 中，else 和谁搭配完全由缩进决定，没和 if 对齐就不会和 if 搭配。
 else:
     print("循环正常结束，没有触发 break")
 ```
@@ -108,7 +109,7 @@ while count < 3:
 ### 注意
 
 - 循环体内要有让条件变化的语句，否则会死循环
-- 不确定循环次数时优先用 while
+- **不确定循环次数时优先用 while**
 
 ### break 与 continue 同样适用
 

@@ -30,6 +30,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 print(f"训练集 {len(X_train)} 条 | 测试集 {len(X_test)} 条")
 
 # ========== 3. 建模、训练、预测（核心三行） ==========
+# 最小二乘原理：在所有直线里，找让残差平方和 Σ(yᵢ−ŷᵢ)² 最小的那条；
+# 用平方而不用绝对值：正负误差不抵消、处处可导、对大误差惩罚更重。
 model = LinearRegression()
 model.fit(X_train, y_train)                 # 训练：最小二乘求参数
 y_pred = model.predict(X_test)              # 预测
@@ -43,7 +45,8 @@ mse = mean_squared_error(y_test, y_pred)
 rmse = np.sqrt(mse)
 r2 = r2_score(y_test, y_pred)
 print(f"\n测试集 RMSE = {rmse:.2f} 分   （平均偏差幅度）")
-print(f"测试集 R²   = {r2:.3f}     （1为完美拟合，越接近1越好）")
+print(f"测试集 R^2  = {r2:.3f}     （1为完美拟合，越接近1越好）")
+# 注：输出用 R^2 而非 R²，避免 GBK 控制台上标字符无法编码
 
 # ========== 5. 可视化 ==========
 fig, ax = plt.subplots(figsize=(7, 5))
@@ -67,7 +70,7 @@ y_multi = 20 + 5 * hours + 2.5 * sleep + rng.normal(0, 5, n)
 m2 = LinearRegression().fit(X_multi, y_multi)
 print("--- 多元回归 y = b0 + b1·时长 + b2·睡眠 ---")
 print(f"b0={m2.intercept_:.1f}, b1={m2.coef_[0]:.2f}, b2={m2.coef_[1]:.2f}")
-print(f"R² = {r2_score(y_multi, m2.predict(X_multi)):.3f}")
+print(f"R^2 = {r2_score(y_multi, m2.predict(X_multi)):.3f}")
 
 # ========== 今日练习 ==========
 # 把噪声 std 从 6 调到 15，观察 R² 如何变化；思考为什么。

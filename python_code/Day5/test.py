@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Day 5：文件和模块
+"""Day 5：文件和模块——连接"程序"与"数据"的桥梁
+为什么学：数据不会永远躺在代码里；真实的分析任务都是从读文件开始。
 运行方式：在本文件夹打开终端，执行  python test.py
 配套数据：scores.txt（文本成绩单）、scores.csv（CSV 成绩单）
 """
 
 # ========== 1. 写入文本文件 ==========
-# "w" 是覆盖写入；"a" 是追加写入
-# encoding="utf-8" 一定要写！否则 Windows 默认 GBK，容易乱码/报错
+# "w" 是覆盖写入；"a" 是追加写入；还有 "r" 读、"b" 二进制模式（图片/表格用）
+# encoding="utf-8" 一定要写！否则 Windows 默认 GBK，容易乱码/报错。
+# 原因：GBK 字库不全，遇到特殊字符（如 emoji）直接报 UnicodeEncodeError；
+# utf-8 能表示所有 Unicode 字符，跨平台通用，读和写要用同一编码
 with open("hello.txt", "w", encoding="utf-8") as f:
     f.write("Hello, Python!\n")
     f.write("第二行：文件操作\n")
@@ -73,6 +76,9 @@ import math as m               # 起别名
 print("sqrt(16) =", sqrt(16), "| m.floor(3.7) =", m.floor(3.7))
 
 # 5.3 导入自己写的模块（同文件夹下的 my_utils.py）
+# 模块搜索顺序：脚本所在文件夹 → PYTHONPATH 环境变量 → 标准库目录 → site-packages
+# 所以"先 cd 到当天文件夹再运行"不只是路径问题，也保证模块能被找到；
+# ⚠️ 模块文件名别和标准库重名（如 math.py），否则 import 会先找到你自己的文件
 from my_utils import average, max_min
 
 print("--- 自定义模块 my_utils ---")

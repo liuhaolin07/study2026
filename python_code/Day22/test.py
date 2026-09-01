@@ -27,6 +27,8 @@ print(df.head(), "\n")
 
 # ========== 1. groupby 的基本思想 ==========
 # split（按班级切开）→ apply（每块算平均）→ combine（拼回一张表）
+# 这就是经典的 split-apply-combine 模式：把"对每组分别做某事"统一成一行代码。
+# ⚠️ 分组列会变成结果的行索引；想让它变回普通列，接 .reset_index()
 class_mean = df.groupby("班级")[["语文", "数学", "英语"]].mean()
 print("--- 各班各科平均分 ---")
 print(class_mean.round(1))
@@ -60,7 +62,8 @@ print("\n班级×性别 交叉表:")
 print(pd.crosstab(df["班级"], df["性别"]))
 
 # ========== 6. transform：把统计量广播回每一行 ==========
-# 每个学生的总分 − 所在班级的平均分（组内偏离度）
+# groupby 三兄弟分工：agg 组→一行；transform 组→广播回每一行（形状不变）；
+# filter 按组条件整组去留。这里用 transform 算"每人与班均的偏离"
 df["班均"] = df.groupby("班级")["总分"].transform("mean")
 df["偏离"] = (df["总分"] - df["班均"]).round(1)
 print("\n--- transform 示例（前5行）---")

@@ -12,6 +12,10 @@ plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei"]
 plt.rcParams["axes.unicode_minus"] = False
 
 # ========== 1. 无约束优化：求函数最小值 ==========
+# 直观几何：把目标函数想成地形，求最小值 = 下山找谷底；
+# 后面第4节的等高线就是"地图"，等高线越密坡越陡。
+# 方法选择：BFGS 等梯度类方法快，但要求函数光滑可导；
+# Nelder-Mead 不用导数、适应黑盒函数但较慢；不可导/不光滑时用后者
 # 目标：f(x) = (x - 3)² + 5，显然最小值在 x=3
 def f(x):
     return (x[0] - 3) ** 2 + 5

@@ -12,6 +12,8 @@ plt.rcParams["axes.unicode_minus"] = False
 rng = np.random.RandomState(7)
 
 # ========== 1. 柱状图 bar：类别数据 ==========
+# bar 高频参数：width 柱宽(0~1)、color/edgecolor 填色/描边、
+# bottom 堆叠起点（堆叠柱状图用）；横轴是类别时直接传字符串列表即可
 subjects = ["语文", "数学", "英语", "物理"]
 avg_scores = [82, 88, 79, 85]
 
@@ -31,6 +33,8 @@ print("已保存 day15_bar.png")
 
 # ========== 2. 直方图 hist：连续数据的分布 ==========
 # 注意区别：bar 是“类别→一个数”，hist 是“把连续区间切成 bins 数个数”
+# hist 高频参数：bins 整数=等宽分组/列表=自定义边界；density 归一化为概率密度；
+# edgecolor 描边；cumulative 累积分布（看“多少比例低于某值”）
 scores = np.clip(rng.normal(75, 12, 300), 20, 100)   # 300个成绩样本
 
 plt.figure(figsize=(6, 4))

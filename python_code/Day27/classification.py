@@ -38,6 +38,8 @@ ax.legend(); ax.grid(alpha=0.3)
 fig.savefig("iris_scatter.png", dpi=150, bbox_inches="tight")
 
 # ========== 2. 划分 + 标准化 ==========
+# 为什么要分训练/测试集：用没见过的数据检验"举一反三"能力，
+# 防止模型只是背住了训练集（过拟合）——这是机器学习的核心纪律
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42, stratify=y)   # stratify 保持类别比例
 
@@ -46,6 +48,9 @@ X_train_s = scaler.fit_transform(X_train)   # 只在训练集上 fit！
 X_test_s = scaler.transform(X_test)         # 测试集用同一套均值方差
 
 # ========== 3. KNN 分类器 ==========
+# 原理一句话："物以类聚"——对新样本看离它最近的 k 个邻居，少数服从多数投票。
+# 距离默认用欧氏距离 → 量纲大的特征会主导距离 → 所以第 2 步必须标准化。
+# k 的选择：太小对噪声敏感（过拟合），太大决策边界过平滑（欠拟合），常用交叉验证选
 knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train_s, y_train)
 y_knn = knn.predict(X_test_s)

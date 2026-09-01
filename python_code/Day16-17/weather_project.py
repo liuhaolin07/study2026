@@ -12,6 +12,12 @@ import matplotlib.pyplot as plt
 plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei"]
 plt.rcParams["axes.unicode_minus"] = False
 
+# 项目流水线（做任何"数据可视化项目"都适用这四步）：
+#   ① 拿到/造出数据并落盘 → ② 读回并预处理（解析日期、分组聚合）
+#   → ③ 选图型回答具体问题 → ④ 美化与保存。
+# 核心心法：先想"这张图回答什么问题"，再选图型，而不是反过来。
+# 本项目四张图分别回答：全年温度走势/季节对比/降雨的季节规律/雨量分布形态
+
 # ========== 第1步：生成一年的模拟天气数据 ==========
 rng = np.random.RandomState(2024)
 days = pd.date_range("2024-01-01", periods=365)
@@ -43,7 +49,7 @@ print("\n各月平均:")
 print(monthly.round(1))
 
 # ========== 第3步：可视化 ==========
-# 图1：全年温度变化折线
+# 图1：全年温度变化折线（回答：一年里冷热怎么变？昼夜温差多大？）
 fig, ax = plt.subplots(figsize=(11, 4.5))
 ax.plot(df["日期"], df["最高温"], lw=0.8, color="tab:red", label="最高温")
 ax.plot(df["日期"], df["最低温"], lw=0.8, color="tab:blue", label="最低温")
@@ -54,7 +60,7 @@ ax.set_ylabel("温度 ℃"); ax.legend(); ax.grid(alpha=0.3)
 fig.autofmt_xdate()                       # 日期标签自动倾斜
 fig.savefig("weather_temp.png", dpi=150, bbox_inches="tight")
 
-# 图2：月均温度对比柱状图
+# 图2：月均温度对比柱状图（回答：哪几个月最热/最冷？——折线看趋势，柱状看对比）
 fig, ax = plt.subplots(figsize=(9, 4))
 xpos = np.arange(12)
 w = 0.38
@@ -65,7 +71,8 @@ ax.set_ylabel("温度 ℃"); ax.set_title("各月平均温度")
 ax.legend(); ax.grid(axis="y", alpha=0.3)
 fig.savefig("weather_monthly.png", dpi=150, bbox_inches="tight")
 
-# 图3：降雨趋势——月降雨总量 + 有雨天数
+# 图3：降雨趋势——月降雨总量 + 有雨天数（回答：雨季在几月？）
+# 技巧：两个量纲不同的指标 → twinx() 双 y 轴；图例需要手动合并两个轴
 fig, ax1 = plt.subplots(figsize=(9, 4.5))
 rain_sum = df.groupby("月份")["降雨量"].sum()
 rain_days = df[df["降雨量"] > 0].groupby("月份").size().reindex(range(1, 13), fill_value=0)
@@ -80,7 +87,7 @@ ax1.legend(lines1 + lines2, labels1 + labels2, loc="upper left")
 ax1.set_title("降雨趋势（左轴：雨量，右轴：雨日）")
 fig.savefig("weather_rain.png", dpi=150, bbox_inches="tight")
 
-# 图4：降雨量分布直方图（绝大多数天没雨 → 右偏分布）
+# 图4：降雨量分布直方图（回答：下雨时一般下多大？——绝大多数天没雨 → 右偏分布）
 fig, ax = plt.subplots(figsize=(7, 4))
 rainy = df.loc[df["降雨量"] > 0, "降雨量"]
 ax.hist(rainy, bins=25, color="tab:cyan", edgecolor="white")

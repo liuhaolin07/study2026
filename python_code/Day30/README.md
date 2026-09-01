@@ -51,6 +51,6 @@ pip install numpy pandas matplotlib scipy scikit-learn openpyxl
 
 ## TODO
 
-- [ ] 补充层次分析法 AHP / TOPSIS 评价模型
+- [x] 补充层次分析法 AHP / TOPSIS 评价模型（见 `ahp_topsis.py`）
 - [ ] 时间序列预测专题
 - [ ] 把 final_project 换成真实房价数据集重跑

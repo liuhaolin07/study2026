@@ -5,6 +5,11 @@
 """
 import numpy as np
 
+# 为什么要用 NumPy（而不是 Python 列表）？
+# ① 底层是 C 实现；② 数组元素在内存中连续存放，类型统一；
+# ③ 向量化把循环交给底层批量处理。
+# 经验法则：能用数组运算就别写 for，差距几十倍甚至上百倍
+
 # ========== 1. 从列表创建 ndarray ==========
 # 向量（一维）
 v = np.array([1, 2, 3, 4, 5])
@@ -72,8 +77,15 @@ print("prices * 2    =", prices * 2)               # 每个元素乘2
 print("prices + 100  =", prices + 100)             # 每个元素加100
 print("prices ** 2   =", prices ** 2)
 
+# 广播（broadcasting）：形状不同的数组也能一起运算，小数组被自动"拉伸"对齐
+# 速查：数组 ± 标量 → 每个元素都算；(2,3) ± (3,) → 每一行都加同一个行向量；
+# ⚠️ 只有维度能对齐才能广播（尾部维度相同或其中一方为1），否则报 shape 错误
+print("数组 + 行向量（每行都加）:\n",
+      np.ones((2, 3)) + np.array([10, 20, 30]))
+
 # 今日练习：
 # 1) 创建一个 5x5 的矩阵，对角线为 0，其余全为 1（提示：ones - eye）
+print("\n练习1: ones - eye =\n", np.ones((5, 5)) - np.eye(5))
 # 2) 用 linspace 生成 0~π 的 100 个点，计算 y = sin(x)
 import math
 x = np.linspace(0, math.pi, 100)

@@ -65,8 +65,12 @@ def evaluate(name, model):
     pred = model.predict(X_test)
     rmse = float(np.sqrt(mean_squared_error(y_test, pred)))
     r2 = float(r2_score(y_test, pred))
-    print(f"{name:<14} RMSE={rmse:6.2f} 万   R²={r2:.3f}")
+    print(f"{name:<14} RMSE={rmse:6.2f} 万   R^2={r2:.3f}")
     return model, pred
+
+# 指标解读：RMSE 与目标同单位（"平均每次预测偏多少万"），越小越好；
+# R² = 模型能解释的目标波动占比：1 为完美，≤0 说明还不如直接猜均值，
+# 那时应该回头反思特征而不是调参
 
 
 print("\n--- 模型对比 ---")
@@ -80,12 +84,14 @@ best_pred = pred_rf if best_name == "随机森林" else pred_lin
 
 # 用最优模型预测一套新房子：
 # 新数据要走同样的编码流程，再 reindex 对齐训练时的列（顺序必须一致！）
+# 为什么：模型系数与训练时的特征列一一对应，列名/顺序错位等于给错题目，
+# reindex + fill_value=0 还能保证新样本缺少某个哑变量列时不报错
 new_raw = pd.DataFrame({
     "面积": [89.0], "房龄": [6], "地铁距离": [0.8], "楼层": ["中层"]})
 new_house = (pd.get_dummies(new_raw, columns=["楼层"])
              .reindex(columns=X.columns, fill_value=0))
 pred_price = float(best_model.predict(new_house)[0])
-print(f"\n新样本预测（89m²/房龄6/距地铁0.8km/中层）≈ {pred_price:.1f} 万元")
+print(f"\n新样本预测（89平米/房龄6/距地铁0.8km/中层）≈ {pred_price:.1f} 万元")
 
 # ========== 第5步：可视化与结论 ==========
 fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.8))
@@ -108,7 +114,7 @@ plt.show()
 
 print("""
 ========== 结论 ==========
-1) 两类模型 R² 都较高，说明选的特征确实承载了价格信息；
+1) 两类模型 R^2 都较高，说明选的特征确实承载了价格信息；
 2) 特征重要性前三通常是 面积/房龄/地铁距离，符合常识 → 模型可信；
 3) 局限：模拟数据无地段/学区变量；真实数据需重新清洗并检验残差。
 """)

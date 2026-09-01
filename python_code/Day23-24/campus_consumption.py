@@ -12,6 +12,14 @@ import matplotlib.pyplot as plt
 plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei"]
 plt.rcParams["axes.unicode_minus"] = False
 
+# 分析思路导读（拿到一堆刷卡流水，问题从哪来？）：
+#   从三个角度提问——时间（什么时候消费）、对象（谁在消费）、金额（花了多少）。
+#   本项目四张图分别回答：
+#   图1 全天什么时段刷卡最多？（时间分布）
+#   图2 早/午/晚/超市的单笔价位差多少？（类别对比）
+#   图3 一个月里每天流水怎么波动？（趋势）
+#   图4 学生月消费怎么分布，低消费群体在哪？（分布与分位数，可作补助参考）
+
 # ========== 第1步：生成一个月的食堂刷卡模拟数据 ==========
 rng = np.random.RandomState(11)
 n_records = 1200

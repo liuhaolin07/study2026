@@ -5,6 +5,10 @@
 """
 import numpy as np
 
+# 为什么要学这一章：线性方程组、坐标变换、拟合与特征提取，
+# 底层全是矩阵运算。把线代公式翻译成 NumPy 一行代码，是数模的基本功。
+# 对应关系：矩阵=ndarray，矩阵乘法=@，行列式/逆/解方程都在 np.linalg 里
+
 A = np.array([[1, 2],
               [3, 4]])
 B = np.array([[5, 6],
@@ -54,6 +58,8 @@ print("np.allclose(I, eye)?", np.allclose(I, np.eye(2)))
 # ========== 6. 解线性方程组（数模最常用！） ==========
 # 方程组： 2x + y = 5 ; x + 3y = 10
 # 矩阵形式： M @ [x, y] = b
+# ⚠️ 永远用 np.linalg.solve，不要用 inv(M) @ b：
+# solve 更快、数值更稳定（inv 会放大浮点误差），而且奇异时错误更明确
 M = np.array([[2, 1],
               [1, 3]])
 b = np.array([5, 10])
