@@ -53,3 +53,6 @@ data-structures/
 notes/
 .obsidian/
 .v2c/
+
+# PyCharm 配置不入库（本地保留）
+.idea/
