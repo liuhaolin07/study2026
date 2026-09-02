@@ -39,5 +39,60 @@ for i in range(2, 6):
 else:
     print("循环正常结束，没有触发 break")
 
+# 在for-else语句中， 如果循环正常结束（没有遇到break），则执行else块
 
+#list表示列表
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+    if fruit=="banana":
+        break
+else:
+    print("循环正常结束")
 
+# 列表（list）：不要用 list 当变量名，会遮蔽内置类型
+numbers = [1, 2, 3, 4, 5]
+for item in numbers:
+    print(item)
+
+print(list(range(10)))
+print(list(numbers))
+print(numbers)
+
+#练习一：输出 100 以内的素数
+for num in range(2,101):
+    is_prime=0
+    # for i in range(2,num):
+    for i in range(2,int(num*0.5)+1):
+        if num%i==0:
+            is_prime=1
+            break
+    if is_prime==0:
+        print(num,end=" ")
+
+#练习二：猜数字游戏
+import random
+target = random.randint(1, 100)
+print("欢迎来到猜数字游戏！")
+count=0
+while True:
+    guess = int(input("请输入你的猜测："))
+    count += 1
+    if guess == target:
+        print("恭喜你，猜对了！")
+        print(f"你一共猜了 {count} 次")
+        break
+    elif guess < target:
+        print("太小了，请再试一次。")
+    else:
+        print("太大了，请再试一次。")
+
+#练习三：九九乘法表
+for i in range(1,10):
+    for j in range(1,i+1):
+        print(f"{j}×{i}={i*j}", end=" ")
+    print() #输出即会换行
+
+# //表示整数除法，返回商的整数部分
+print(10 // 3) # 输出 3
+print(10 / 3)  # 输出 3.3333333333333335
