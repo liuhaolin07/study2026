@@ -12,9 +12,9 @@
 
 ```python
 nums = [1, 2, 3]
-nums.append(4)
-nums.insert(1, 10)
-nums.remove(2)
+nums.append(4)  #末尾追加元素4
+nums.insert(1, 10)   # 在下标 1 位置插入 10
+nums.remove(2)   # 删除第一个匹配的 2
 print(nums)
 ```
 
@@ -25,7 +25,7 @@ print(nums)
 - `remove()`：删除指定元素（第一个匹配项）
 - `pop()`：弹出元素，不传下标默认弹出最后一个
 - `sort()`：原地排序
-- `extend()`：把另一个列表追加到末尾
+- `extend()`：把另一个列表追加到末尾 使用说明：extend() 方法用于在列表末尾追加另一个列表中的所有元素。
 - `count()`：统计元素出现次数
 - `index()`：查找元素第一次出现的位置
 
