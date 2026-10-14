@@ -60,12 +60,14 @@ for 循环常用于遍历序列。
 for i in range(5):
     print(i)
 ```
+# 输出0 1 2 3 4
 
 ### 例子：遍历字符串
 
 ```python
 for ch in "Python":
     print(ch)
+# 输出P y t h o n，自动加换行
 ```
 
 ### break 和 continue
@@ -181,6 +183,8 @@ while True:
 ```python
 for i in range(1, 10):
     for j in range(1, i + 1):      # j 只到 i，避免重复
+        # end="" 的作用：print() 默认结尾会换行（\n），加上 end="" 后不换行，
+        # 这样同一行的多个算式就能紧挨着输出，直到外层 print() 才换行。
         print(f"{j}*{i}={i*j}\t", end="")
     print()
 ```
