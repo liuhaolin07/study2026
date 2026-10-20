@@ -138,3 +138,42 @@
 # print(tinydict['Name'])
 # print(tinydict['Age'])
 # print(tinydict['Class'])
+
+# scores=[] #list类型
+# students={} #dict类型
+# while True:
+#     try:
+#         line=input("请输入名字和成绩（用空格隔开）：")
+#     except EOFError:
+#         break  #这两行的作用是当输入EOFError时，退出循环
+#
+#     if not line:
+#         break  #当输入为空时，退出循环
+#
+#     name,score_text=line.split() #split() 方法用于将字符串按照空格分割成两个字符串
+#     score=int(score_text)
+#     students[name]=score
+#     scores.append(score) #给scores列表添加元素
+#     print(students) #打印学生信息
+#     print(scores) #打印学生成绩
+#
+# if scores:
+#     average_score=sum(scores)/len(scores)
+#     print(f"平均分是{average_score}")
+#     print(f"最高分是{max(scores)}")
+#     print(f"最低分是{min(scores)}")
+# else:
+#     print("没有输入学生成绩")
+
+
+#练习二 字符统计
+text=input("请输入一串字符:")
+counts={} #dict用于计数
+
+for ch in text:
+    counts[ch]=counts.get(ch,0)+1
+    #get() 方法用于获取指定键的值，如果键不存在于字典中，返回默认值0
+    #给counts排序
+for ch,count in counts.items(): #items方法返回(key,value)
+    print(f"{ch}:{count}")
+
