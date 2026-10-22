@@ -1,0 +1,53 @@
+{
+    "tasks": [
+        {
+            "type": "process",
+            "label": "C++: Build active file",
+            "command": "D:/app_edge/w64devkit/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-std=c++17",
+                "-O0",
+                "-Wall",
+                "-Wextra",
+                "-finput-charset=UTF-8",
+                "-fexec-charset=UTF-8",
+                "${fileBasename}",
+                "-o",
+                "${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build the current C++ file with GCC and C++17."
+        },
+        {
+            "type": "process",
+            "label": "C++: Build and run active file",
+            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "dependsOn": "C++: Build active file",
+            "options": {
+                "cwd": "${fileDirname}",
+                "env": {
+                    "PATH": "D:\\app_edge\\w64devkit\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "clear": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

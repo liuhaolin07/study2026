@@ -1,0 +1,50 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C++: Debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "${fileDirname}",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "preLaunchTask": "C++: Build active file",
+      "environment": [
+        {
+          "name": "PATH",
+          "value": "D:\\app_edge\\w64devkit\\bin;${env:PATH}"
+        }
+      ],
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:/app_edge/w64devkit/bin/gdb.exe",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/File/OneDrive/Desktop/code/26秋程序设计/tasks/month9",
+      "program": "d:/File/OneDrive/Desktop/code/26秋程序设计/tasks/month9/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:/app_edge/w64devkit/bin/gdb.exe",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

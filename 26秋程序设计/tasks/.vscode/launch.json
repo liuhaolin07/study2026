@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "C++: Debug active file (CodeLLDB)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "preLaunchTask": "C++: Build active file",
+      "terminal": "integrated",
+      "stopOnEntry": false,
+      "env": {
+        "PATH": "D:\\app_edge\\w64devkit\\bin;${env:PATH}"
+      }
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
@@ -11,7 +25,7 @@
       "cwd": "d:/File/OneDrive/Desktop/code/26秋程序设计/tasks",
       "program": "d:/File/OneDrive/Desktop/code/26秋程序设计/tasks/build/Debug/outDebug",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "D:/app_edge/w64devkit/bin/gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

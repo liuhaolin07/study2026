@@ -71,6 +71,7 @@ print("差集:", a_set - b_set)          # {1,2}
 unique = list(set([1, 2, 2, 3, 3, 3]))
 print("去重:", unique)
 
+
 # ========== 6. 通用操作：len / max / min / sum / sorted ==========
 nums3 = [3, 1, 4, 1, 5]
 print("\n--- 通用操作 ---")
