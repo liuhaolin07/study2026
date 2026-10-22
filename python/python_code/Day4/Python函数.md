@@ -95,11 +95,11 @@ print(result)
 ### 注意
 
 - 写了 return 后，函数会立刻结束，后面的代码不再执行
-- 没有 return 时，默认返回 None
+- ==🟡没有 return 时，默认返回 None==
 
 ### 返回多个值
 
-返回多个值时，Python 会自动打包成元组：
+返回多个值时，Python 会自动打包成**元组**：
 
 ```python
 def get_min_max(nums):
@@ -223,6 +223,22 @@ print("升序：", sort_numbers(nums))
 print("降序：", sort_numbers(nums, reverse=True))
 ```
 
+```
+sorted(iterable, key=None, reverse=False)
+```
+
+|参数|作用|默认值|
+|---|---|---|
+|`iterable`|要排序的可迭代对象，如列表、元组、字符串、字典等|必填|
+|`key`|指定排序规则，每个元素先经过这个函数再比较|`None`|
+|`reverse`|`True` 降序，`False` 升序|`False`|
+```
+words = ["banana", "apple", "kiwi", "pear"] # 按长度升序（从短到长） print(sorted(words, key=len)) 
+# ['kiwi', 'pear', 'apple', 'banana'] 
+# 按长度降序（从长到短） 
+print(sorted(words, key=len, reverse=True))
+# ['banana', 'apple', 'kiwi', 'pear']
+```
 ## 8. 练习二：数据统计函数
 
 ### 题目
@@ -307,3 +323,5 @@ for i in range(1, 11):
 - lambda 适合简单场景，常配合排序和过滤使用
 - 递归要记得写终止条件
 - 写函数时，先想清楚「输入是什么，输出是什么」
+
+[^1]: 
