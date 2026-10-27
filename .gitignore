@@ -56,3 +56,17 @@ notes/
 
 # PyCharm 配置不入库（本地保留）
 .idea/
+
+# ===== Algorithms：资料与生成物不入库 =====
+# 课件 / 真题 / 题单等参考资料（PDF、zip，共 ~258MB）
+Algorithms/参考/
+# 由 Algorithms/scripts 生成的静态站点与抽取产物（~252MB）
+Algorithms/site/
+Algorithms/out/
+
+# 资料类文件兜底忽略（仓库里不放二进制资料；脚本源码照常入库）
+*.pdf
+*.zip
+*.docx
+*.pptx
+*.xlsx
