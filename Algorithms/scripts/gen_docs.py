@@ -4,7 +4,8 @@
 import os, re, json, shutil, hashlib
 
 ROOT = r"D:\File\OneDrive\Desktop\code\Algorithms"
-SITE = os.path.join(ROOT, "site")
+# 站点已移出 OneDrive 同步目录（2026-10-27）
+SITE = r"D:\work\study2026-assets\site"
 DOCS = os.path.join(SITE, "docs")
 OUT_JSON = os.path.join(SITE, "data", "repo_docs.json")
 

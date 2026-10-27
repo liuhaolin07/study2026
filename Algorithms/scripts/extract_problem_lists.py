@@ -2,8 +2,10 @@
 """从题单 PDF 中提取 章节 -> 题目(名称+OJ链接) 结构，输出 JSON。"""
 import pymupdf, json, re, sys, os
 
-SRC = r"D:\File\OneDrive\Desktop\code\Algorithms\参考\2026题单"
-OUT = r"D:\File\OneDrive\Desktop\code\Algorithms\site\data\problems_raw.json"
+# 资料与站点已移出 OneDrive 同步目录（2026-10-27），实际位置见 ASSETS_ROOT
+ASSETS_ROOT = r"D:\work\study2026-assets"
+SRC = os.path.join(ASSETS_ROOT, "参考", "2026题单")
+OUT = os.path.join(ASSETS_ROOT, "site", "data", "problems_raw.json")
 
 PDFS = [
     ("cpp", "1. 《算法竞赛-C++编程课》题目清单.pdf", "C++ 编程课", "语言基础"),

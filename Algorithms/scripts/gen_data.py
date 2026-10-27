@@ -2,7 +2,8 @@
 """生成 site/assets/js/data.js：题库 + 学习路线 + 课件清单 + 真题清单。"""
 import json, os, re
 
-SITE = r"D:\File\OneDrive\Desktop\code\Algorithms\site"
+# 站点已移出 OneDrive 同步目录（2026-10-27）
+SITE = r"D:\work\study2026-assets\site"
 ASSETS = os.path.join(SITE, "assets")
 
 # ---------- 学习路线（来自 参考/2026题单/path.docx） ----------

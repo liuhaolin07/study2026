@@ -2,8 +2,10 @@
 """解压课件/真题到 site/assets，并生成文件清单 assets_manifest.json。"""
 import zipfile, os, json, shutil, re
 
-REF = r"D:\File\OneDrive\Desktop\code\Algorithms\参考"
-SITE = r"D:\File\OneDrive\Desktop\code\Algorithms\site"
+# 资料与站点已移出 OneDrive 同步目录（2026-10-27），实际位置见 ASSETS_ROOT
+ASSETS_ROOT = r"D:\work\study2026-assets"
+REF = os.path.join(ASSETS_ROOT, "参考")
+SITE = os.path.join(ASSETS_ROOT, "site")
 ASSETS = os.path.join(SITE, "assets")
 
 # (zip 文件名, 目标目录)

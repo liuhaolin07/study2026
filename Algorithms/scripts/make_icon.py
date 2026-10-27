@@ -4,8 +4,10 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT_ICO = os.path.join(ROOT, "site", "assets", "icon.ico")
-OUT_PNG = os.path.join(ROOT, "site", "assets", "icon-256.png")
+# 站点已移出 OneDrive 同步目录（2026-10-27）
+SITE = r"D:\work\study2026-assets\site"
+OUT_ICO = os.path.join(SITE, "assets", "icon.ico")
+OUT_PNG = os.path.join(SITE, "assets", "icon-256.png")
 
 S = 256
 BG = (15, 22, 33, 255)

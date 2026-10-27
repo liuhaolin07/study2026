@@ -58,9 +58,10 @@ notes/
 .idea/
 
 # ===== Algorithms：资料与生成物不入库 =====
-# 课件 / 真题 / 题单等参考资料（PDF、zip，共 ~258MB）
+# 2026-10-27 起实际文件已移出 OneDrive 同步目录，放到 D:\work\study2026-assets\
+#   （参考\ = 课件/真题/题单 ~258MB，site\ = 站点与课件 PDF ~252MB）
+# 下面规则保留：防止以后在原地重建时误提交进 git。
 Algorithms/参考/
-# 由 Algorithms/scripts 生成的静态站点与抽取产物（~252MB）
 Algorithms/site/
 Algorithms/out/
 

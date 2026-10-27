@@ -28,7 +28,8 @@ from difflib import SequenceMatcher
 import pymupdf
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = os.path.join(ROOT, "site")
+# 站点已移出 OneDrive 同步目录（2026-10-27）
+SITE = r"D:\work\study2026-assets\site"
 OUT = os.path.join(SITE, "assets", "js", "courseware.js")
 
 GENERIC = {"练习题", "练习", "模板题", "例题", "阶段小结", "小结", "引入", "总结", "习题", "作业"}
