@@ -70,3 +70,7 @@ Algorithms/out/
 *.docx
 *.pptx
 *.xlsx
+
+# Python 练习目录：编辑器配置与运行产物不入库
+python/python_code/.vscode/
+python/python_code/hello.txt
