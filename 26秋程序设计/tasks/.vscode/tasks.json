@@ -3,19 +3,11 @@
     "tasks": [
         {
             "label": "C++: Build active file",
-            "type": "process",
-            "command": "D:/app_edge/w64devkit/bin/g++.exe",
+            "type": "shell",
+            "command": "cmd",
             "args": [
-                "-std=c++17",
-                "-g",
-                "-gdwarf-4",
-                "-O0",
-                "-Wall",
-                "-Wextra",
-                "-fdiagnostics-color=always",
-                "${fileBasename}",
-                "-o",
-                "${fileBasenameNoExtension}.exe"
+                "/c",
+                "if /I \"${fileExtname}\"==\".c\" (\"D:\\app_edge\\w64devkit\\bin\\gcc.exe\" -fdiagnostics-color=always -g -std=c17 -O0 -Wall -Wextra -finput-charset=UTF-8 -fexec-charset=UTF-8 \"${fileBasename}\" -o \"${fileBasenameNoExtension}.exe\") else (\"D:\\app_edge\\w64devkit\\bin\\g++.exe\" -fdiagnostics-color=always -g -std=c++17 -O0 -Wall -Wextra -finput-charset=UTF-8 -fexec-charset=UTF-8 \"${fileBasename}\" -o \"${fileBasenameNoExtension}.exe\")"
             ],
             "options": {
                 "cwd": "${fileDirname}",
@@ -36,9 +28,13 @@
         },
         {
             "label": "C++: Build and run active file",
-            "type": "process",
-            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "type": "shell",
+            "command": "cmd",
             "dependsOn": "C++: Build active file",
+            "args": [
+                "/c",
+                "chcp 65001>nul && \"${fileDirname}\\${fileBasenameNoExtension}.exe\""
+            ],
             "options": {
                 "cwd": "${fileDirname}",
                 "env": {

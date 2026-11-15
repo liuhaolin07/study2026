@@ -2,37 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C++: Debug active file (CodeLLDB)",
-      "type": "lldb",
+      "name": "C/C++: Run active file (terminal)",
+      "type": "node-terminal",
       "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-      "args": [],
+      "command": "cmd /c \"chcp 65001>nul && \\\"${fileDirname}\\${fileBasenameNoExtension}.exe\\\"\"",
       "cwd": "${fileDirname}",
-      "preLaunchTask": "C++: Build active file",
-      "terminal": "integrated",
-      "stopOnEntry": false,
-      "env": {
-        "PATH": "D:\\app_edge\\w64devkit\\bin;${env:PATH}"
-      }
-    },
-    {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
-      "request": "launch",
-      "args": [],
-      "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "d:/File/OneDrive/Desktop/code/26秋程序设计/tasks",
-      "program": "d:/File/OneDrive/Desktop/code/26秋程序设计/tasks/build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "D:/app_edge/w64devkit/bin/gdb.exe",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+      "preLaunchTask": "C++: Build active file"
     }
   ]
 }
